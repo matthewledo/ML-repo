@@ -1,0 +1,119 @@
+
+<style>
+    #websiteWrapper {
+	margin: 0;
+	padding: 0;
+}
+
+#websiteWrapper #contentWrapper {
+	margin: auto;
+	max-width: 1400px;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+}
+
+#websiteWrapper #contentWrapper aside {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
+</style>
+<div id="websiteWrapper">
+    <div id="contentWrapper">
+        <aside></aside>
+            <nav>
+                <ul>
+
+                </ul>
+            </nav>
+
+    </div>
+</div>
+
+<script>
+
+
+    var navMenu = {
+        "header": {
+            "imageLink": "http://matthewledo.com/wp-content/uploads/2023/01/308483705_5508353619241454_1920645603161687817_n-3.jpg",
+            "name": "Justin Ledo",
+            "title": "Director of External at John Molson Supply Chain and Business Technology Association (JSBA) | Upcoming Strategy & Innovation Analyst at Deloitte",
+            "email": "justinledo199@gmail.com",
+            "socials": [
+                {
+                    "twitter": {
+                        "link": "twitter.com",
+                        "logo": "http://matthewledo.com/wp-content/uploads/2023/01/twitter-logo.jpg",
+                    },
+
+                    "facebook": {
+                        "link": "https://www.facebook.com/justin.ledo",
+                        "logo": "http://matthewledo.com/wp-content/uploads/2023/01/fb-logo.jpg",
+                    },
+
+                    "linkedin": {
+                        "link": "https://www.linkedin.com/in/justin-ledo/",
+                        "logo": "http://matthewledo.com/wp-content/uploads/2023/01/linkedin-logo.jpg",
+                    }
+                }
+            ]
+        },
+
+        "links": {
+            "home": "HOME",
+            "aboutMe": "ABOUT ME",
+            "skillsAndCertifications": "Skills & CERTIFICATIONS",
+            "experience": "EXPERIENCE",
+            "resume": "RESUME",
+            "contact": "CONTACT",
+        }
+    }
+
+    
+    var menuColumn = document.querySelector("#contentWrapper aside");
+    var menuHeader = document.createElement('div');
+    menuHeader.setAttribute('id','menuHeader');
+
+    var menuPhoto = document.createElement('img');
+    menuPhoto.setAttribute('id', 'menuPhoto');
+    menuPhoto.setAttribute('src', navMenu.header.imageLink);
+
+
+    var menuPhotoName = document.createElement('h3');
+    menuPhotoName.setAttribute('id', 'menuPhotoName');
+    menuPhotoName.innerHTML = navMenu.header.name;
+
+    var menuPhotoTitle = document.createElement('h4');
+    menuPhotoTitle.setAttribute('id', 'menuPhotoTitle');
+    menuPhotoTitle.innerHTML = navMenu.header.title;
+
+    var menuPhotoEmail = document.createElement('h5');
+    menuPhotoEmail.setAttribute('id', 'menuPhotoEmail');
+    menuPhotoEmail.innerHTML = navMenu.header.email;
+
+    var menuPhotoSocials = document.createElement('div');
+    menuPhotoSocials.setAttribute('id', 'menuPhotoSocials');
+    for (let social of navMenu.header.socials) {
+        var socialLink = document.createElement('a');
+        socialLink.setAttribute('class','socialLink');
+        socialLink.setAttribute('href', navMenu.header.socials.link);
+ 
+        var logo = document.createElement('img');
+        logo.setAttribute('class','socialLogo');
+        logo.setAttribute('src', navMenu.header.socials.logo);
+
+        socialLink.appendChild(logo);
+        menuPhotoSocials.appendChild(socialLink);
+    }
+
+    
+    menuHeader.appendChild(menuPhoto);
+    menuHeader.appendChild(menuPhotoName);
+    menuHeader.appendChild(menuPhotoTitle);
+    menuHeader.appendChild(menuPhotoEmail);
+
+    menuColumn.appendChild(menuHeader);
+</script>

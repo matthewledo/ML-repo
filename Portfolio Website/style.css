@@ -22,6 +22,38 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
+/* MY STYLES */
+#websiteWrapper {
+	margin: 0;
+	padding: 0;
+}
+
+#websiteWrapper #contentWrapper {
+	margin: auto;
+	max-width: 1400px;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+}
+
+#websiteWrapper #contentWrapper aside {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
+/* END MY STYLES */
+
+
+
+
+
+
+
+
+
+
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
