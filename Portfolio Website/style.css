@@ -23,26 +23,549 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
 /* MY STYLES */
+/* 
+{"Oxford Blue":"041a34","Paradise Pink":"ef476f","Orange Yellow Crayola":"ffd166","Caribbean Green":"06d6a0","White":"fcfcfc"} */
+@keyframes slideLeft {
+	from {
+	  margin-left: 0;
+	}
+  
+	/* 50% {
+	  margin-left: -150px;
+	} */
+  
+	to {
+	  margin-left: -300px;
+	}
+  }
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+ html {
+	max-height: 100vh;
+	margin-top: 0;
+	--blue: #041a34;
+	--pink: #ef476f;
+	--yellow: #ffd166;
+	--green: #06d6a0;
+	--white: #fcfcfc;
+
+	--gray: #2a2828;
+ }
+
+ #page {
+	position: relative;
+ }
+
+ #backgroundImage  {
+    left: 0%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.8);
+    /* filter: grayscale(1); */
+    position: absolute;
+    /* padding-top: 75%; */
+    background-size: cover;
+    background-position: center;
+}
+
 #websiteWrapper {
 	margin: 0;
 	padding: 0;
+	max-width: 2200px;
+
 }
 
 #websiteWrapper #contentWrapper {
+	max-width: 1600px;
 	margin: auto;
-	max-width: 1400px;
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+	/* margin: 60px auto; */
+	filter: drop-shadow(2px 4px 6px black);
+	position: relative;
 }
 
 #websiteWrapper #contentWrapper aside {
-	width: 30%;
-	display: flex;
-	flex-direction: column;
-	align-content: center;
+	width: 300px;
+	background-color: #041a34;
+    display: flex;
+	align-self: stretch;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+	border: 1px #cacaca solid;
+	padding-bottom: 30px;
+	color: var(--white);
 }
+@media (min-width:601px) {
+#hamburger {
+	display: none!important;
+}
+
+.closebtn {
+	display: none;
+}
+}  
+@media (max-width:600px) {
+	#websiteWrapper #contentWrapper aside {
+	/* animation-name: slideLeft;
+	animation-duration: 3s; */
+	/* transition: .5s ease; */
+	/* -moz-transform: translateX(-300px);
+    -webkit-transform: translateX(-300px);
+    -ms-transform: translateX(-300px);
+    -o-transform: translateX(-300px);
+    transform: translateX(-300px); */
+	width: 0px;
+	    overflow-x: auto;
+		margin-left: -3px;
+		border: none;
+		transition: 0.3s;
+}
+
+#websiteWrapper #contentWrapper aside.openMobileNav {
+	width: 270px;
+	background-color: #041a34;
+    position: fixed;
+	z-index: 1;
+	height: 100%;
+	top: 0;
+	left: 0;
+	align-self: stretch;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+	border: 1px #cacaca solid;
+	padding-bottom: 30px;
+	color: var(--white);
+	margin-left: 0;
+	overflow-x: visible;
+}
+
+#hamburger {
+		font-size: 30px;
+		cursor: pointer;
+		position: absolute;
+		display: block;
+		z-index: 99999999999999;
+		top: 1%;
+		left: 3%;
+		color: var(--white);
+}
+
+#hamburger.removeHamburger {
+	display: none;
+}
+
+#menuHeader #menuPhoto {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: auto;
+    background-size: cover;
+    background-position: center;
+}
+
+#websiteWrapper #contentWrapper {
+    max-width: 2200px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+	/* margin: 60px auto; */
+	filter: drop-shadow(2px 4px 6px black);
+	position: relative;
+}
+
+a.closebtn {
+	font-size: 42px;
+	color: var(--white);
+	text-align: right;
+    color: #fff;
+    text-decoration: unset;
+    margin-right: 20px;
+}
+}
+
+
+div#menuHeader {
+    padding: 30px 15px 15px 15px;
+}
+
+#menuHeader #menuPhoto {
+	width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: auto;
+    background-size: cover;
+	background-position: center;
+	
+}
+
+h4#menuPhotoTitle {
+    font-size: 14px;
+	margin: 0;
+}
+
+h3#menuPhotoName {
+    font-size: 30px;
+    margin: 5px;
+}
+
+h5#menuPhotoEmail {
+    margin: 15px 0 25px;
+    font-weight: 100;
+    /* text-decoration: auto; */
+    font-size: 16px;
+}
+
+div#menuPhotoSocials {
+    display: flex;
+    max-width: 80%;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+a.socialLink {
+    flex-basis: 20%;
+}
+
+ul#navigationList {
+	list-style: none;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+}
+
+li.navButton {
+    padding: 15px 0;
+    font-weight: 500;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+li.navButton .active{
+font-weight: 900;
+background-color: #ffffff21;
+width: 234px;
+}
+
+ul#navigationList li:hover {
+    cursor: pointer;
+    background-color: #ffffff21;
+    width: 234px;
+	transition: 0.5s;
+}
+
+
+div#content {
+	width: 100%;
+	max-width: 1100px;
+	background: rgba(0, 0, 0, 0.6);
+	min-height: 100vh;
+}
+
+
+#content #homepageHeroWrapper {
+	padding-bottom: 57%;
+    position: relative;
+    background-size: cover;
+    background-position: bottom;
+}
+
+#content #heroTitle {
+	color: #fff;
+    position: absolute;
+    font-size: 65px;
+    top: 40%;
+    left: 5%;
+}
+
+#content #heroSubTitle {
+	color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 60%;
+    left: 5%;
+}
+
+@media (max-width: 1050px) {
+	#content #heroTitle {
+		color: #fff;
+		position: absolute;
+		font-size: 43px;
+		top: 47%;
+		left: 5%;
+	}
+	
+	#content #heroSubTitle {
+		color: #fff;
+		position: absolute;
+		font-size: 26px;
+		top: 66%;
+		left: 5%;
+	}
+}
+
+@media (max-width: 850px) {
+	#content #heroTitle {
+		color: #fff;
+		position: absolute;
+		font-size: 40px;
+		top: 38%;
+		left: 5%;
+	}
+	
+	#content #heroSubTitle {
+		color: #fff;
+		position: absolute;
+		font-size: 20px;
+		top: 61%;
+		left: 5%;
+	}
+}
+
+@media (max-width: 675px) {
+	#content #heroTitle {
+		color: #fff;
+		position: absolute;
+		font-size: 34px;
+		top: 30%;
+		left: 5%;
+	}
+	
+	#content #heroSubTitle {
+		color: #fff;
+		position: absolute;
+		font-size: 16px;
+		top: 56%;
+		left: 5%;
+	}
+}
+
+#homeNav {
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+    padding: 15px;
+}
+
+#homeNavTitle {
+    text-align: center;
+    font-size: 42px;
+    color: #fff;
+	margin: 15px;
+}
+
+#flexWrapper {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+
+#flexWrapper .flexButton {
+    text-decoration: none;
+    height: 100px;
+    align-self: flex-start;
+    padding: 20px;
+    /* background-color: var(--blue); */
+    margin: 15px;
+    border: 1px solid #fff;
+	cursor: pointer;
+	max-width: 100%;
+}
+
+#flexWrapper .flexButton h4 {
+	margin: 0;
+}
+
+#flexWrapper .flexButton p {
+	margin-bottom: 0;
+}
+
+#flexWrapper .flexButton:hover {
+background-color: var(--gray);
+transition: 0.5s ease;
+}
+
+aside.homePageWrapper, .flexButton.homePageWrapper {
+	background-color: var(--blue)!important;
+}
+
+aside.aboutMePageWrapper, .flexButton.aboutMePageWrapper {
+background-color: var(--green)!important;
+}
+
+aside.skillsPageWrapper, .flexButton.skillsPageWrapper {
+	background-color: var(--pink)!important;
+}
+
+aside.experiencePageWrapper, .flexButton.experiencePageWrapper {
+	background-color: var(--yellow)!important;
+}
+
+aside.resumePageWrapper, .flexButton.resumePageWrapper {
+	background-color: var(--blue)!important;
+}
+aside.contactPageWrapper, .flexButton.contactPageWrapper {
+	background-color: var(--white)!important;
+	color: var(--gray)!important;
+}
+
+#flexWrapper .contactPageWrapper {
+	background-color: var(--white);
+	border: 1px solid #fff;
+}
+
+#flexWrapper .contactPageWrapper .flexMsg {
+	color: var(--gray)!important;
+}
+
+#flexWrapper .contactPageWrapper:hover .flexMsg {
+	color: #fff!important;
+}
+
+
+#flexWrapper .flexButton .flexMsg {
+    width: 315px;
+    color: #fff;
+    max-width: 100%;
+}
+
+/* ABOUT ME PAGE BEGINNING */
+
+div#aboutMeFlex {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    margin-top: 0px;
+    flex-wrap: wrap;
+	padding: 10px 0 60px 0;
+}
+
+#aboutMePageWrapper h2 {
+	text-align: center;
+	color: #d5d5d5;
+}
+
+img#aboutMeImg {
+    width: 100%;
+    height: auto;
+}
+
+div#aboutMeImgWrapper {
+    width: 30%;
+}
+
+div#aboutMeContentWrapper {
+    padding: 5px 25px;
+    flex-basis: 65%;
+}
+
+#aboutMeContentWrapper p {
+    color: #d5d5d5;
+}
+
+@media (max-width: 850px) {
+	img#aboutMeImg {
+		width: 100%;
+		height: auto;
+	}
+	#aboutMeImgWrapper {
+		width: 45%!important;
+	}
+
+	div#aboutMeContentWrapper {
+		padding: 5px 25px;
+		flex-basis: 100%;
+	}
+
+}
+
+@media (max-width: 450px) {
+	#aboutMeImgWrapper {
+		width: 52%!important;
+	}
+}
+/* RESUME PAGE BEGINNING */
+
+div#resumePageWrapper {
+    padding: 20px;
+}
+
+#resumePageFlex {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+}
+
+div#downloadBox {
+    width: 20%;
+    display: none;
+}
+
+#previewResumeWrapper {
+position: relative;
+}
+
+h2#previewResumeH2 {
+    color: #fff;
+}
+
+#fullScreenButton {
+    padding: 10px;
+    position: absolute;
+    font-size: 30px;
+    background-color: #eee;
+    color: #000;
+    right: 45px;
+    top: 75px;
+	border: 1px solid;
+    border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	line-height: 1;
+}
+
+iframe#previewResume {
+	position: relative;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
 /* END MY STYLES */
 
 

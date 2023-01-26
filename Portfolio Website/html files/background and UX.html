@@ -1,85 +1,132 @@
+<?php
+/**
+ * The template for displaying all pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package my-portfolio-website
+ */
 
-<style>
-    #websiteWrapper {
-	margin: 0;
-	padding: 0;
-}
-
-#websiteWrapper #contentWrapper {
-	margin: auto;
-	max-width: 1400px;
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	justify-content: space-between;
-}
-
-#websiteWrapper #contentWrapper aside {
-	width: 30%;
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-}
-</style>
+get_header();
+?>
 <div id="websiteWrapper">
     <div id="contentWrapper">
-        <aside></aside>
-            <nav>
-                <ul>
-
-                </ul>
-            </nav>
-
+        <span id="hamburger"style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <aside>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </aside>
+        <div id="content">
+            <div id="homePageWrapper" style="animation: fadeInAnimation ease 1s; animation-iteration-count: 1; animation-fill-mode: forwards;"></div>
+            <div id="aboutMePageWrapper" style="display: none; animation: fadeInAnimation ease 1s; animation-iteration-count: 1; animation-fill-mode: forwards;"></div>
+            <div id="skillsPageWrapper" style="display: none; animation: fadeInAnimation ease 1s; animation-iteration-count: 1; animation-fill-mode: forwards;"></div>
+            <div id="experiencePageWrapper" style="display: none; animation: fadeInAnimation ease 1s; animation-iteration-count: 1; animation-fill-mode: forwards;"></div>
+            <div id="resumePageWrapper" style="display: none; animation: fadeInAnimation ease 1s; animation-iteration-count: 1; animation-fill-mode: forwards;"></div>
+            <div id="contactPageWrapper" style="display: none; animation: fadeInAnimation ease 1s; animation-iteration-count: 1; animation-fill-mode: forwards;"></div>
+        </div>
     </div>
 </div>
 
+
 <script>
 
+function openNav() {
+  document.querySelector("#websiteWrapper #contentWrapper aside").classList.add('openMobileNav');
+  document.getElementById('hamburger').classList.add('removeHamburger');
+  document.querySelector('.closebtn').style.display = 'block';
+}
+
+function closeNav() {
+    document.querySelector("#websiteWrapper #contentWrapper aside").classList.remove('openMobileNav');
+    document.getElementById('hamburger').classList.remove('removeHamburger');
+  document.querySelector('.closebtn').style.display = 'none';
+}
+
+    var webBackground = "http://matthewledo.com/wp-content/uploads/2023/01/mtl-image-compressed-scaled.jpg";
 
     var navMenu = {
         "header": {
             "imageLink": "http://matthewledo.com/wp-content/uploads/2023/01/308483705_5508353619241454_1920645603161687817_n-3.jpg",
             "name": "Justin Ledo",
-            "title": "Director of External at John Molson Supply Chain and Business Technology Association (JSBA) | Upcoming Strategy & Innovation Analyst at Deloitte",
+            "title": "Director of External at John Molson Supply Chain and Business Technology Association (JSBA)",
+            // | Upcoming Strategy & Innovation Analyst at Deloitte",
             "email": "justinledo199@gmail.com",
             "socials": [
                 {
-                    "twitter": {
-                        "link": "twitter.com",
+                    
+                        "link": "https://www.twitter.com",
                         "logo": "http://matthewledo.com/wp-content/uploads/2023/01/twitter-logo.jpg",
                     },
-
-                    "facebook": {
+                   {
                         "link": "https://www.facebook.com/justin.ledo",
                         "logo": "http://matthewledo.com/wp-content/uploads/2023/01/fb-logo.jpg",
                     },
-
-                    "linkedin": {
+                    {
                         "link": "https://www.linkedin.com/in/justin-ledo/",
                         "logo": "http://matthewledo.com/wp-content/uploads/2023/01/linkedin-logo.jpg",
-                    }
-                }
+                    },
+                
             ]
         },
 
-        "links": {
-            "home": "HOME",
-            "aboutMe": "ABOUT ME",
-            "skillsAndCertifications": "Skills & CERTIFICATIONS",
-            "experience": "EXPERIENCE",
-            "resume": "RESUME",
-            "contact": "CONTACT",
-        }
+        "links": [
+            
+           "Home",
+            "About Me",
+            "Skills & Certifications",
+            "Experience",
+            "Resume",
+            "Contact"
+        ],
+
+        "descriptions": [
+            "",
+            "Learn more about who I am and what I've been up to.",
+            "See what I've learned and accomplished.",
+            "Check out my past experiences, accolades and acheivements.",
+            "View and Download my Resume.",
+            "Contact me though Social Media, email or my contact form!"
+        ]
     }
 
-    
+    var homePageHero = {
+        "image": "http://matthewledo.com/wp-content/uploads/2023/01/312017281_532570155544813_8643975369747961073_n.jpg",
+        "h1": "Hi! I'm Justin.",
+        "h2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada tempus dictum."
+    }
+
+    var aboutMePage = {
+        "image": "http://matthewledo.com/wp-content/uploads/2023/01/308483705_5508353619241454_1920645603161687817_n.jpg",
+        "title": "Here's My Story",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Viverra tellus in hac habitasse. Molestie at elementum eu facilisis sed. Dui vivamus arcu felis bibendum ut tristique. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Purus faucibus ornare suspendisse sed nisi lacus. Vestibulum sed arcu non odio euismod lacinia at quis. Sed vulputate odio ut enim blandit. sagittis orci a. Turpis massa tincidunt dui ut ornare lectus sit. Rutrum tellus pellentesque eu tincidunt.<br><br>Nunc lobortis mattis aliquam faucibus purus. Feugiat vivamus at augue eget. Rhoncus urna neque viverra justo nec ultrices dui sapien. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Aliquam ut porttitor leo a. Laoreet suspendisse interdum consectetur libero id faucibus. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus. Interdum varius sit amet mattis. A arcu cursus vitae congue mauris rhoncus aenean vel elit. Vitae purus faucibus ornare suspendisse sed nisi lacus. In cursus turpis massa tincidunt. Neque vitae tempus quam pellentesque nec nam aliquam. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Elit duis tristique sollicitudin nibh sit amet commodo nulla. Elit scelerisque mauris pellentesque pulvinar pellentesque."
+    }
+
+    var resumePage = {
+        "resumePDF": "http://matthewledo.com/wp-content/uploads/2023/01/matt_resume.pdf"
+    }
+
+    // Montreal Background Image
+    var backgroundImage = document.createElement('div');
+    backgroundImage.setAttribute('id', 'backgroundImage');
+    backgroundImage.style.backgroundImage = 'url(' + webBackground + ')';
+    document.getElementById('masthead').appendChild(backgroundImage);
+    // BEGINNING OD SIDEBAR********************************************************** 
+
+    // Begining of menu column header: Picture, Title, Email, Social Links
+
     var menuColumn = document.querySelector("#contentWrapper aside");
     var menuHeader = document.createElement('div');
     menuHeader.setAttribute('id','menuHeader');
 
-    var menuPhoto = document.createElement('img');
+    var menuPhoto = document.createElement('div');
     menuPhoto.setAttribute('id', 'menuPhoto');
-    menuPhoto.setAttribute('src', navMenu.header.imageLink);
+    menuPhoto.style.backgroundImage = 'url(' + navMenu.header.imageLink + ')';
+
+
 
 
     var menuPhotoName = document.createElement('h3');
@@ -96,14 +143,16 @@
 
     var menuPhotoSocials = document.createElement('div');
     menuPhotoSocials.setAttribute('id', 'menuPhotoSocials');
-    for (let social of navMenu.header.socials) {
+
+
+    for (let i=0; i < navMenu.header.socials.length; i++) {
         var socialLink = document.createElement('a');
         socialLink.setAttribute('class','socialLink');
-        socialLink.setAttribute('href', navMenu.header.socials.link);
+        socialLink.setAttribute('href', navMenu.header.socials[i].link);
  
         var logo = document.createElement('img');
         logo.setAttribute('class','socialLogo');
-        logo.setAttribute('src', navMenu.header.socials.logo);
+        logo.setAttribute('src', navMenu.header.socials[i].logo);
 
         socialLink.appendChild(logo);
         menuPhotoSocials.appendChild(socialLink);
@@ -114,6 +163,265 @@
     menuHeader.appendChild(menuPhotoName);
     menuHeader.appendChild(menuPhotoTitle);
     menuHeader.appendChild(menuPhotoEmail);
+    menuHeader.appendChild(menuPhotoSocials);
 
     menuColumn.appendChild(menuHeader);
+    
+    // Ending of menu column header: Picture, Title, Email, Social Links
+
+
+
+// Begining of menu column Navigation
+
+    var nav = document.createElement('div');
+    nav.setAttribute('id', 'menuNav');
+
+    var navigationList = document.createElement('ul');
+    navigationList.setAttribute('id', 'navigationList');
+
+for (let p = 0; p < navMenu.links.length; p++) {
+      var navItem = document.createElement('li')
+      navItem.setAttribute('class', 'navButton');
+      navItem.setAttribute
+          navItem.innerHTML = navMenu.links[p];
+      navigationList.appendChild(navItem);
+    nav.appendChild(navigationList);
+    menuColumn.appendChild(nav);
+}
+
+// Ending of menu column Navigation
+
+
+// BEGIINING OF HOMEPAGE**********************************************************
+
+var homePageNavTitle = "Quick Links";
+
+// Title for Hero
+ var heroTitle = document.createElement('h1');
+ heroTitle.setAttribute('id','heroTitle');
+heroTitle.innerHTML = homePageHero.h1;
+
+var heroSubTitle = document.createElement('h2');
+ heroSubTitle.setAttribute('id','heroSubTitle');
+heroSubTitle.innerHTML = homePageHero.h2;
+
+var homePageWrapper = document.getElementById('homePageWrapper');
+
+
+var heroWrapper = document.createElement('div');
+heroWrapper.setAttribute("id","homepageHeroWrapper");
+heroWrapper.style.backgroundImage = 'url('+homePageHero.image+')';
+
+homePageWrapper.appendChild(heroWrapper);
+heroWrapper.appendChild(heroTitle);
+heroWrapper.appendChild(heroSubTitle);
+
+// End Title for Hero
+
+
+
+// Homepage navigation: Create Buttons + Titles
+var homeNavTitle = document.createElement('h2');
+homeNavTitle.setAttribute('id','homeNavTitle');
+homeNavTitle.innerHTML = homePageNavTitle;
+
+var homeNav = document.createElement('div');
+homeNav.setAttribute('id','homeNav');
+
+var flexWrapper = document.createElement('div');
+flexWrapper.setAttribute('id', 'flexWrapper');
+
+for (let x = 1; x < navMenu.links.length; x++) {
+var flexButton = document.createElement('button');
+flexButton.setAttribute('class', 'flexButton');
+
+var flexButtonMsg = document.createElement('div');
+flexButtonMsg.setAttribute('class', 'flexMsg');
+
+var flexButtonH4 = document.createElement('h4');
+flexButtonH4.setAttribute('class', 'flexButtonTitle');
+
+var flexButtonDesc = document.createElement('p');
+flexButtonDesc.setAttribute('class', 'flexButtonDesc');
+
+flexButtonH4.innerHTML = navMenu.links[x];
+
+flexButtonDesc.innerHTML = navMenu.descriptions[x];
+
+flexWrapper.appendChild(flexButton);
+flexButton.appendChild(flexButtonMsg);
+flexButtonMsg.appendChild(flexButtonH4);
+flexButtonMsg.appendChild(flexButtonDesc);
+}
+homeNav.appendChild(homeNavTitle);
+homeNav.appendChild(flexWrapper);
+
+homePageWrapper.appendChild(homeNav);
+
+var nb = document.getElementsByClassName('navButton');
+
+// nb[0].setAttribute('dataset','homePageWrapper');
+// nb[1].setAttribute('dataset','aboutMePageWrapper');
+// nb[2].setAttribute('dataset','skillsPageWrapper');
+// nb[3].setAttribute('dataset','experiencePageWrapper');
+// nb[4].setAttribute('dataset','resumePageWrapper');
+// nb[4].setAttribute('dataset','contactPageWrapper');
+
+nb[0].dataset.categoryPage ='homePageWrapper';
+nb[1].dataset.categoryPage ='aboutMePageWrapper';
+nb[2].dataset.categoryPage ='skillsPageWrapper';
+nb[3].dataset.categoryPage ='experiencePageWrapper';
+nb[4].dataset.categoryPage ='resumePageWrapper';
+nb[5].dataset.categoryPage ='contactPageWrapper';
+
+var fb = document.getElementsByClassName('flexButton');
+
+fb[0].classList.add('aboutMePageWrapper');
+fb[0].dataset.categoryPage ='aboutMePageWrapper';
+
+fb[1].classList.add('skillsPageWrapper');
+fb[1].dataset.categoryPage ='skillsPageWrapper';
+
+fb[2].classList.add('experiencePageWrapper');
+fb[2].dataset.categoryPage ='experiencePageWrapper';
+
+fb[3].classList.add('resumePageWrapper');
+fb[3].dataset.categoryPage ='resumePageWrapper';
+
+fb[4].classList.add('contactPageWrapper');
+fb[4].dataset.categoryPage ='contactPageWrapper';
+
+// BEGINNING OF ABOUT ME PAGE
+
+var aboutMeFlex = document.createElement('div');
+aboutMeFlex.setAttribute("id","aboutMeFlex");
+
+var aboutMeImgWrapper = document.createElement('div');
+aboutMeImgWrapper.setAttribute("id","aboutMeImgWrapper");
+
+var aboutMeImg = document.createElement('img');
+aboutMeImg.setAttribute("id","aboutMeImg");
+aboutMeImg.setAttribute("src",aboutMePage.image);
+aboutMeImg.setAttribute("width","30%");
+aboutMeImg.setAttribute("height","auto");
+aboutMeImgWrapper.appendChild(aboutMeImg);
+
+
+var aboutMeContentWrapper = document.createElement('div');
+aboutMeContentWrapper.setAttribute("id","aboutMeContentWrapper");
+
+var aboutMeContent = document.createElement('p');
+aboutMeContent.setAttribute("id","aboutMeContent");
+aboutMeContent.innerHTML = aboutMePage.text;
+aboutMeContentWrapper.appendChild(aboutMeContent);
+
+aboutMeFlex.appendChild(aboutMeImgWrapper);
+aboutMeFlex.appendChild(aboutMeContentWrapper);
+
+var aboutMePageTitle = document.createElement('h2'); 
+aboutMePageTitle.innerHTML = aboutMePage.title;
+
+document.getElementById('aboutMePageWrapper').appendChild(aboutMePageTitle);
+document.getElementById('aboutMePageWrapper').appendChild(aboutMeFlex);
+
+// BEGINNING OF RESUME PAGE
+
+var resumePageFlex = document.createElement('div');
+resumePageFlex.setAttribute('id', 'resumePageFlex');
+
+// var downloadBox = document.createElement('div');
+// downloadBox.setAttribute('id', 'downloadBox');
+
+// var downloadBoxH2 = document.createElement('h2');
+// downloadBoxH2.setAttribute('id', 'downloadBoxH2');
+// downloadBoxH2.innerHTML = "Download Resume";
+
+// var downloadButton = document.createElement('button');
+// downloadButton.setAttribute('id', 'downloadButton');
+// downloadButton.innerHTML = "Download <span class='material-symbols-outlined'> download</span>";
+
+
+var resumeHolderWrap = document.createElement('div');
+resumeHolderWrap.setAttribute('id', 'resumeHolderWrap');
+
+var previewResumeH2 = document.createElement('h2');
+previewResumeH2.setAttribute('id', 'previewResumeH2');
+previewResumeH2.innerHTML = "Preview Resume";
+
+var previewResumeWrapper = document.createElement('div');
+previewResumeWrapper.setAttribute('id', 'previewResumeWrapper');
+
+var previewResume = document.createElement('iframe');
+previewResume.setAttribute('id', 'previewResume');
+previewResume.setAttribute('src', resumePage.resumePDF);
+previewResume.setAttribute('width', '900px');
+previewResume.setAttribute('height', '1000px');
+previewResume.setAttribute('frameborder', '0');
+
+
+var fullScreenButton = document.createElement('a');
+fullScreenButton.setAttribute('id','fullScreenButton');
+fullScreenButton.setAttribute('target','_blank');
+fullScreenButton.setAttribute('href',resumePage.resumePDF);
+fullScreenButton.innerHTML = "<span class='material-symbols-outlined'>open_in_full</span>";
+
+// downloadBox.appendChild(downloadBoxH2);
+// downloadBox.appendChild(downloadButton);
+// resumePageFlex.appendChild(downloadBox);
+
+previewResumeWrapper.appendChild(previewResume);
+previewResumeWrapper.appendChild(fullScreenButton);
+resumeHolderWrap.appendChild(previewResumeH2);
+resumeHolderWrap.appendChild(previewResumeWrapper)
+resumePageFlex.appendChild(resumeHolderWrap);
+
+    
+document.getElementById("resumePageWrapper").appendChild(resumePageFlex);
+
+var quickLinks = document.getElementsByClassName('flexButton');
+for (let quickLink of quickLinks) {
+    quickLink.addEventListener('click', showNewPage ,false);
+}
+
+var navLinks = document.getElementsByClassName('navButton');
+// for (let navLink of navLinks) {
+//     navLink.classList.add('navLink');
+// }
+
+// var totalNavLinks = document.getElementsByClassName('navLink');
+for (let i=0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener('click', setActive,false);
+    navLinks[i].addEventListener('click', showNewPage,false);
+}
+
+function setActive() {
+    if (this.classList.contains('active')) {
+        return;
+    } else {
+        for (let i=0; i < navLinks.length; i++) {
+            navLinks[i].classList.remove('active');
+        }
+        this.classList.add('active');
+    }
+
+}
+
+function showNewPage() {
+
+    var allDivs = document.querySelectorAll('#content > div');
+
+    for (let z=0; z < allDivs.length; z++) {
+        allDivs[z].style.display = 'none';
+    }   
+    var x = document.getElementById(this.dataset.categoryPage);
+       x.style.display = 'block';
+   
+    var menuColor = document.querySelector('#contentWrapper aside');
+    if (menuColor.classList.contains(this.dataset.categoryPage)) {
+        return;
+    } else { 
+        menuColor.className = "";
+    }
+    menuColor.classList.add(this.dataset.categoryPage);
+ }
 </script>
